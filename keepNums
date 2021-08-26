@@ -1,0 +1,14 @@
+Function keepNums(str As String)
+    Static rgx As Object
+    If rgx Is Nothing Then
+        Set rgx = CreateObject("VBScript.RegExp")
+    End If
+    keepNums = vbNullString
+
+    With rgx
+        .Global = True
+        .MultiLine = True
+        .Pattern = "[^0-9]"
+        keepNums = .Replace(str, vbNullString)
+    End With
+End Function
